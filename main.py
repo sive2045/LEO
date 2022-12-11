@@ -118,12 +118,12 @@ for j in range(0,number_agents):
 
 #Quick internal function to return a Poliastro two body orbit from a slice of values with format a,e,i,raan,argp,nu
 def OrbitCreator(dataslice):
-    semimajor = dataslice[0]* u.km
-    ecc = dataslice[1] * u.one
-    inc = dataslice[2] * u.deg
-    raan = dataslice[3] * u.deg
-    argp = dataslice[4] * u.deg
-    nu = dataslice[5] * u.deg
+    semimajor = dataslice[0] << u.AU
+    ecc = dataslice[1] << u.one
+    inc = dataslice[2] << u.deg
+    raan = dataslice[3] << u.deg
+    argp = dataslice[4] << u.deg
+    nu = dataslice[5] << u.deg
     orb = Orbit.from_classical(Earth, semimajor, ecc, inc, raan, argp, nu)
     return orb
 
