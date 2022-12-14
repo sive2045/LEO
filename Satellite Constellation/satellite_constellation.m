@@ -66,7 +66,7 @@ hold on
 scatter3(x_points,y_points,z_points,'ob', 'filled') % SATELLITES
 %% Plot Earth6
 % earth image file
-image_file = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/K%C3%B6ppen-vereinfacht.svg/1920px-K%C3%B6ppen-vereinfacht.svg.png';
+image_file = 'https://images.alphacoders.com/590/590923.jpg';
 set(gca, 'NextPlot','add', 'Visible','off'); % Turn off the normal axes
 
 [X,Y,Z] = sphere;
