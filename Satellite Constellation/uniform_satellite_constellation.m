@@ -57,27 +57,24 @@ parfor m=1:length(numofsat)
 Xs(m,:)=[xs];
 Ys(m,:)=[ys];
 Zs(m,:)=[zs];
-%x_points(m,1) = xs(1,1);
-%y_points(m,1) = ys(1,1);
-%z_points(m,1) = zs(1,1);
 end
 plot3(Xs,Ys,Zs,'.b', MarkerSize=1) % SATELLITE CONSTELLATION
+hold on
 
-idx = randi([1,1584*144],1, 1584);
-idx_sat = fix(idx/1584);
-idx_time_step = rem(idx,144);
+% Uniformly selected 1584 sats 
+idx = randi([0,1584*144-1],1, 1584);
+idx_sat = fix(idx/144)+1;
+idx_time_step = rem(idx,144)+1;
 
 X_points = zeros(1584,1);
 Y_points = zeros(1584,1);
 Z_points = zeros(1584,1);
-for i=1:length(numofsat)
+for i=1:1:1584
     X_points(i,1) = Xs(idx_sat(1,i), idx_time_step(1,i));
     Y_points(i,1) = Ys(idx_sat(1,i), idx_time_step(1,i));
     Z_points(i,1) = Zs(idx_sat(1,i), idx_time_step(1,i));
 end
-
-hold on
-scatter3(X_points,Y_points,Z_points,'ob', 'filled') % SATELLITES
+scatter3(X_points,Y_points,Z_points,'or', 'filled') % UNIFORM 
 %% Plot Earth6
 % earth image file
 image_file = 'https://images.alphacoders.com/590/590923.jpg';
